@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./output.css">
+  <title>Numbers</title>
+</head>
+<body class="bg-black">
+  <header class="p-4 flex items-center h-16">
+    <div class="flex gap-4">
+      <img src="./assets/logo.svg" alt="Numbers - Sorteador de Numeros">
+      <h1 class="uppercase text-zinc-100 text-2xl">Numbers</h1>
+    </div>
+  </header>
+  <main class="my-16 mx-auto px-20 flex">
+    <div class="left">
+      <div>
+        <span class="text-white uppercase text-xs">Online - Gratuito</span>
+        <h1 class="text-8xl font-bold uppercase text-white">Sorteador de Numeros</h1>
+      </div>
+      <div class="my-8 flex flex-col gap-8">
+        <div>
+          <h3 class="text-fuchsia-500 flex gap-2"><img src="./assets/faq-icon.svg" alt="Perguntas Frequentes">Como funciona o sorteador de numeros?</h3>
+          <span class="text-white text-xs">O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.</span>
+        </div>
+        <div>
+          <h3 class="text-fuchsia-500 flex gap-2"><img src="./assets/faq-icon.svg" alt="Perguntas Frequentes">Posso escolher o intervalo dos números?</h3>
+          <span class="text-white text-xs">Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</span>
+        </div>
+      </div>
+    </div>
+    <div class=" flex-col gap-4 hidden">
+      <div>
+        <h2 class="text-white uppercase text-lg font-bold">Quero sortear:</h2>
+        <span class="text-white text-sm">Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</span>
+      </div>
+      <div class="flex gap-12 my-10">
+        <div class="flex flex-col">
+          <label for="quantity" class="text-white uppercase">Números</label>
+          <input type="text" value="1" class="p-1 w-14 h-12 border-none bg-black text-white text-2xl font-bold  focus-visible:border-none outline-none">
+        </div>
+        <div class="flex flex-col">
+          <label for="de" class="text-white uppercase">De</label>
+          <input type="text" value="1" class="p-1 w-14 h-12 border-none bg-black text-white text-2xl font-bold focus-visible:border-none outline-none">
+        </div>
+        <div class="flex flex-col">
+          <label for="ate" class="text-white uppercase">Até</label>
+          <input type="text" value="100" class="p-1 w-14 h-12 border-none bg-black text-white text-2xl font-bold  focus-visible:border-none outline-none">
+        </div>
+      </div>
+      <label class="inline-flex items-center cursor-pointer">
+        <input type="checkbox" value="" class="sr-only peer">
+        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+        <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Não repetir número</span>
+      </label>
+      <button class="text-white bg-zinc-600 p-3 uppercase flex items-center justify-center gap-3 cursor-pointer">Sortear <img src="./assets/arrow.svg" alt=""></button>
+    </div>
+    <div class="resultado flex flex-col p-6 gap-4 w-full items-center justify-center">
+      <div>
+        <h1 class="text-white text-xl">Resultado do Sorteio</h1>
+      </div>
+      <div class="flex gap-8">
+        <span class="text-3xl text-fuchsia-700 font-bold">1</span>
+        <span class="text-3xl text-fuchsia-700 font-bold">2</span>
+      </div>
+      <button class="text-white bg-zinc-600 p-3 uppercase flex items-center justify-center gap-3 cursor-pointer">Sortear novamente</button>
+    </div>
+  </main>
+</body>
+</html>
