@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class=" flex-col gap-4 hidden">
+    <div class="flex flex-col gap-4 sortear">
       <div>
         <h2 class="text-white uppercase text-lg font-bold">Quero sortear:</h2>
         <span class="text-white text-sm">Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</span>
@@ -56,16 +56,53 @@
       </label>
       <button class="text-white bg-zinc-600 p-3 uppercase flex items-center justify-center gap-3 cursor-pointer">Sortear <img src="./assets/arrow.svg" alt=""></button>
     </div>
-    <div class="resultado flex flex-col p-6 gap-4 w-full items-center justify-center">
+    <div class="resultado hidden flex-col p-6 gap-4 w-full items-center justify-center">
       <div>
         <h1 class="text-white text-xl">Resultado do Sorteio</h1>
       </div>
       <div class="flex gap-8">
-        <span class="text-3xl text-fuchsia-700 font-bold">1</span>
-        <span class="text-3xl text-fuchsia-700 font-bold">2</span>
+        <span class="text-3xl text-fuchsia-700 font-bold"></span>
+        <span class="text-3xl text-fuchsia-700 font-bold"></span>
       </div>
       <button class="text-white bg-zinc-600 p-3 uppercase flex items-center justify-center gap-3 cursor-pointer">Sortear novamente</button>
     </div>
   </main>
+
+  <script>
+    document.querySelector('button').addEventListener('click', function() {
+      const quantity = parseInt(document.querySelector('input[type="text"][value="1"]').value);
+      const min = parseInt(document.querySelector('input[type="text"][value="1"]').value);
+      const max = parseInt(document.querySelector('input[type="text"][value="100"]').value);
+      const unique = document.querySelector('input[type="checkbox"]').checked;
+
+      let numbers = [];
+      while (numbers.length < quantity) {
+        const num = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (unique && numbers.includes(num)) continue;
+        numbers.push(num);
+      }
+
+      const resultDiv = document.querySelector('.resultado .flex.gap-8');
+      resultDiv.innerHTML = '';
+      numbers.forEach(number => {
+        const span = document.createElement('span');
+        span.className = 'text-3xl text-fuchsia-700 font-bold';
+        span.textContent = number;
+        resultDiv.appendChild(span);
+      });
+
+      document.querySelector('.sortear').classList.remove('flex');
+      document.querySelector('.sortear').classList.add('hidden');
+      document.querySelector('.resultado').classList.remove('hidden');
+      document.querySelector('.resultado').classList.add('flex');
+    });
+
+    document.querySelector('.resultado button').addEventListener('click', function() {
+      document.querySelector('.resultado').classList.remove('flex');
+      document.querySelector('.resultado').classList.add('hidden');
+      document.querySelector('.sortear').classList.remove('hidden');
+      document.querySelector('.sortear').classList.add('flex');
+    });
+  </script>
 </body>
 </html>
